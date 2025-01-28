@@ -1,0 +1,5 @@
+
+So i remember:
+
+
+an alwasys open weather cli
