@@ -5,14 +5,15 @@
 #include "weatherday.h"
 #include "weatherapp.h"
 #include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
 
 class NetworkManager : public QObject
 {
     Q_OBJECT
 public:
     explicit NetworkManager(QObject *parent = nullptr);
-    void fetchToday();
-    void fetchWeek();
+    void fetchToday(double lat, double longi);
+    void fetchWeek(double lat, double longi);
 signals:
 
     void todayWeatherUpdate(WeatherDay today);
@@ -20,10 +21,12 @@ signals:
 
 public slots:
 
+    void onCoordsReceived(double lat, double longi);
     void replyFinished(QNetworkReply *reply);
 
 private:
     QNetworkAccessManager *m_manager;
+
 
 };
 
