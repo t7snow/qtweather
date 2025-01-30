@@ -9,7 +9,8 @@ LocationManager::LocationManager(QObject *parent)
     }
 }
 
-void LocationManager::finished(QGeoPositionInfo &info){
+void LocationManager::finished(const QGeoPositionInfo &info){
+
     QGeoCoordinate coord = info.coordinate();
     double lat = coord.latitude();
     double longitude = coord.longitude();

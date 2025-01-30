@@ -2,10 +2,16 @@
 #define NETWORKMANAGER_H
 
 #include <QObject>
-#include "weatherday.h"
-#include "weatherapp.h"
+#include <QDebug>
+#include <QJsonObject>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonParseError>
+#include "weatherday.h"
+#include "weatherapp.h"
+
 
 class NetworkManager : public QObject
 {
@@ -22,11 +28,14 @@ signals:
 public slots:
 
     void onCoordsReceived(double lat, double longi);
-    void replyFinished(QNetworkReply *reply);
+    void pointReplyFinished(QNetworkReply *reply);
+    void forecastReplyFinished(QNetworkReply *reply);
 
 private:
-    QNetworkAccessManager *m_manager;
-
+    QNetworkAccessManager *m_coord_manager;
+    QNetworkAccessManager *m_forecast_manager;
+    WeatherDay *m_weather_day;
+    QList<WeatherDay*> m_weather_week;
 
 };
 
