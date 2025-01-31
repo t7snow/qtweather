@@ -14,5 +14,7 @@ int main(int argc, char *argv[])
         qDebug() << "Permission status:" << p.status();
     });
 
+    weatherApp.
+
     return app.exec();
 }
