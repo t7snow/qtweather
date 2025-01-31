@@ -19,11 +19,11 @@ class NetworkManager : public QObject
 public:
     explicit NetworkManager(QObject *parent = nullptr);
     void fetchToday(double lat, double longi);
-    void fetchWeek(double lat, double longi);
+    // void fetchWeek(double lat, double longi);
 signals:
 
-    void todayWeatherUpdate(WeatherDay today);
-    void weekWeatherUpdate(QList<WeatherDay> week);
+    void todayWeatherUpdate(WeatherDay *today);
+    void weekWeatherUpdate(QList<WeatherDay*> week);
 
 public slots:
 

@@ -19,9 +19,9 @@ signals:
 
 private slots:
 
-    void todayDataUpdate(WeatherDay today);
-    void weekDataUpdate(QList<WeatherDay> week);
-    void run();
+    void todayDataUpdate(WeatherDay *today);
+    void weekDataUpdate(QList<WeatherDay*> week);
+    // void run();
 
 };
 

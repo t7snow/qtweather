@@ -10,7 +10,7 @@ class LocationManager : public QObject
     Q_OBJECT
 public:
     explicit LocationManager(QObject *parent = nullptr);
-    void getCoords();
+    // void getCoords();
 
 signals:
     void coordsReceived(double lat, double longitude);

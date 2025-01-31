@@ -9,35 +9,37 @@ class WeatherDay : public QObject
 public:
     explicit WeatherDay(QObject *parent = nullptr);
     Q_PROPERTY(double temp READ getTemp WRITE setTemp NOTIFY tempChanged FINAL);
-    Q_PROPERTY(double humidity READ getHumidity WRITE setHumidity NOTIFY humidityChanged FINAL);
+    Q_PROPERTY(double wind READ getWind WRITE setWind NOTIFY windChanged FINAL);
     Q_PROPERTY(double precip READ getPrecip WRITE setPrecip NOTIFY precipChanged FINAL);
     Q_PROPERTY(double cloud_cover READ getCloudCover WRITE setCloudCover NOTIFY cloudCoverChanged FINAL);
 
     double getTemp();
-    void setTemp();
+    void setTemp(double temp);
 
-    double getHumidity();
-    void setHumidity();
+    double getWind();
+    void setWind(double wind);
 
     double getPrecip();
-    void setPrecip();
+    void setPrecip(double precip);
 
-    double getCloudCover();
-    void setCloudCover();
+    int getCloudCover();
+    void setCloudCover(int cloud);
 
 
 signals:
 
     void tempChanged();
-    void humidityChanged();
+    void windChanged();
     void precipChanged();
     void cloudCoverChanged();
 
 private:
     double m_temp;
-    double m_humidity;
+    double m_wind;
     double m_rain;
-    double m_cloud_cover;
+    //75 mostly
+    //50 partly
+    int m_cloud_cover;
 
 
 };
